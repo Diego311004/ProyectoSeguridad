@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Seguridad</title>
-    
-    <!-- Integración de Google Analytics -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-649DE3DWNC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,9 +15,25 @@
     </script>
 
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #clickCounter {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+        #clickButton {
+            padding: 8px 16px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Bienvenido al Proyecto Seguridad</h1>
+
+    <button id="clickButton">Haz clic aquí para contar</button>
+    <div id="clickCounter">Clicks: 0</div>
+
     <form id="registerForm">
         <input type="text" id="username" placeholder="Nombre de usuario" required>
         <input type="password" id="password" placeholder="Contraseña" required>
@@ -32,6 +47,25 @@
     </form>
 
     <div class="alert" id="alert"></div>
+
+    <script>
+        let clickCount = 0;
+        const clickButtonElement = document.getElementById('clickButton');
+        const clickCounterElement = document.getElementById('clickCounter');
+
+        clickButtonElement.addEventListener('click', () => {
+            clickCount++;
+            clickCounterElement.textContent = `Clicks: ${clickCount}`;
+            console.log(`¡Clic registrado! Total de clicks: ${clickCount}`);
+
+            // Enviar evento a Google Analytics
+            gtag('event', 'click_contador', {
+                'event_category': 'interaccion',
+                'event_label': 'clic_en_boton_contador',
+                'value': clickCount
+            });
+        });
+    </script>
 
     <script src="./script.js"></script>
 </body>
