@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Seguridad</title>
+    
+    <!-- Integración de Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-649DE3DWNC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-649DE3DWNC');
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Bienvenido al Proyecto Seguridad</h1>
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Nombre de usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Nombre de usuario" required>
+        <input type="password" id="loginPassword" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <div class="alert" id="alert"></div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
