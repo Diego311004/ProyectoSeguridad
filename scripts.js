@@ -19,7 +19,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const loginUsername = document.getElementById('loginUsername').value;
     const loginPassword = document.getElementById('loginPassword').value;
 
-    const user = users.find(u => u.username === loginUsername && u.password === loginPassword);
+    // Volver a leer los usuarios desde localStorage al intentar iniciar sesión
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const user = storedUsers.find(u => u.username === loginUsername && u.password === loginPassword);
 
     if (user) {
         console.log(`Usuario iniciado sesión: ${loginUsername}`);
